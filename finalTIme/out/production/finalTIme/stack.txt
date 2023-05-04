@@ -1,0 +1,59 @@
+public class stack {
+    int ptr;
+    int[] arr;
+    int size;
+
+    public stack(int size){
+        this.ptr = -1;
+        this.size = size;
+        this.arr = new int[size];
+    }
+
+    public boolean isEmpty(){
+        return ptr == -1;
+    }
+    public boolean isFull(){
+        return ptr == arr.length-1;
+    }
+
+    public void push(int data){
+        if (isFull()){
+            System.out.println("The stack is full.");
+            return;
+        }
+        ptr++;
+        arr[ptr] = data;
+    }
+    public void pop(){
+        if (isEmpty()){
+            System.out.println("The stack is empty.");
+            return;
+        }
+        System.out.println("The popped item is "+arr[ptr]);
+        ptr--;
+    }
+    public void display(){
+
+        if(isEmpty()){
+            System.out.println("The list is empty.");
+        }
+        else {
+            while (ptr != -1) {
+                System.out.println(arr[ptr]);
+                ptr--;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        stack ss = new stack(5);
+        ss.push(1);
+        ss.push(2);
+        ss.push(3);
+        ss.push(4);
+        ss.push(5);
+        ss.pop();
+        ss.display();
+    }
+}
